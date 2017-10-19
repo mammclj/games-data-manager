@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap 模板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../js/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <style>
+        .container{margin-left: 0;}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="jumbotron">
+                <h2>
+                    游戏推广月数据统计
+                </h2>
+
+            </div>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>
+                        <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 月份</button>
+                    </td>
+                    <td>
+                        <div class="input-append date" id="datetimepicker" data-date="201710" data-date-format="yyyydd">
+                            <input size="16" type="text" value="201710" readonly>
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        游戏
+                        <select>
+                            <option>全部</option>
+                            <option>天天飚车</option>
+                        </select>
+                    </td>
+                    <td>
+                        道具
+                        <select>
+                            <option>全部</option>
+                            <option>TP_0001</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 查询</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        日期
+                    </th>
+                    <th>
+                        应用
+                    </th>
+                    <th>
+                        渠道
+                    </th>
+                    <th>
+                        新增用户
+                    </th>
+                    <th>
+                        付费用户
+                    </th>
+                    <th>
+                        付费成功用户
+                    </th>
+                    <th>
+                        请求金额:分
+                    </th>
+                    <th>
+                        请求成功金额:分
+                    </th>
+                    <th>
+                        信息费:分
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        TB - Monthly
+                    </td>
+                    <td>
+                        01/04/2012
+                    </td>
+                    <td>
+                        Default
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        TB - Monthly
+                    </td>
+                    <td>
+                        01/04/2012
+                    </td>
+                    <td>
+                        Default
+                    </td>
+                    <td>
+                        Default
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../js/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.fr.js"></script>
+<script src="../js/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $('#datetimepicker').datetimepicker({
+        format:'yyyymm',
+        autoclose:true,//自动关闭
+        minView:3,//最精准的时间选择为日期0-分 1-时 2-日 3-月
+        weekStart:0
+
+    });
+</script>
+</body>
+</html>

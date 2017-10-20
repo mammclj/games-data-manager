@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="import" href="../common/common.html">
+    <script>
+        $(function () {
+            $('#tt').tree({
+                lines: true,
+                data: [{
+                        id: 0,
+                        text: '系统信息'
+                    }, {
+                        id: 1,
+                        text: '账户管理'
+                    },{
+                        id: 2,
+                        text: '代码管理',
+                        state: 'closed',
+                        children: [{
+                            id: 3,
+                            text: 'SP管理',
+                            attributes: {
+                                "menuId":"spManagement"
+                            }
+                        },{
+                            id: 4,
+                            text: '代码管理',
+                            attributes: {
+                                "menuId":"codeManagement"
+                            }
+                        }]
+                    },{
+                        id: 5,
+                        text: '支付管理',
+                        state: 'closed',
+                        children: [{
+                            id: 6,
+                            text: 'APP管理',
+                            attributes: {
+                                "menuId":"appManagement"
+                            }
+                        },{
+                            id: 7,
+                            text: '发行渠道管理',
+                            attributes: {
+                                "menuId":"spManagement"
+                            }
+                        }]
+                    },{
+                        id: 8,
+                        text: '数据分析',
+                        state: 'closed',
+                        children: [{
+                            id: 9,
+                            text: '游戏推广数据统计'
+                        },{
+                            id: 10,
+                            text: '游戏推广月数据统计'
+                        },{
+                            id: 11,
+                            text: 'SP数据统计'
+                        },{
+                            id: 12,
+                            text: 'SP月数据统计'
+                        }]
+                    }],
+                onClick: function(node){
+                    if($(this).tree('getChildren',node.target).length==0){
+                        showMenuHtml(node);
+                    }
+                }
+            });
+            var node = $('#tt').tree('find', 0);
+            $('#tt').tree('select', node.target);
+            showMenuHtml(node);
+            setInterval(getNowTime, 1000);
+        });
+        function getNowTime(){
+            $("#showTime").text(new Date().toLocaleString( ).toLocaleString());
+        }
+        function showMenuHtml(node) {
+            if($("#menutabs").tabs('exists',node.text)){
+                $("#menutabs").tabs('select',node.text);
+            }else{
+                $("#menutabs").tabs('add',{
+                   title: node.text,
+                   selected: true,
+                    closable:true,
+                    onClose: function(title,index){
+                        //console.log(title+":"+index);
+                    }
+                });
+            }
+        }
+    </script>
+    <style>
+        .north_body_class{
+            background-color: #E0ECFF;
+            color: #95B8E7;
+        }
+    </style>
+</head>
+<body>
+<div id="cc" class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north',split:true,bodyCls:'north_body_class'" style="height:75px;">
+        <div style="margin: 10px 5px;float: left;">
+            <span style="width:100%;height:100%;font-size: 30px;font-weight: bold;color: #5f5f5f;">游戏后台统计管理系统</span>
+        </div>
+        <div style="float: right;margin: 10px 15px;">
+            <div style="margin: 1px 1px;">
+                <span style="font-size: 15px;font-weight: bold;color: #3c8b3c;">admin</span>,欢迎您登录！
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a id="btn" style="width: 10px;" href="others/Wopop.html"  >登出</a>
+            </div>
+            <div style="margin: 5px 3px 0px 3px;align-content: right;">
+                <span id="showTime" style="width: 20px;color: #5f5f5f;"></span>
+            </div>
+        </div>
+
+    </div>
+    <div data-options="region:'south',collapsible:false,split:false" style="height:0px;"></div>
+    <!--<div data-options="region:'east',title:'其他',split:true" style="width:100px;"></div>-->
+    <div data-options="region:'west',title:'功能菜单',split:true" style="width:200px;">
+        <ul id="tt"></ul>
+    </div>
+    <div data-options="region:'center',fit:true" style="background:#eee;">
+        <div id="menutabs" class="easyui-tabs" data-options="fit:true"></div>
+    </div>
+</div>
+</body>
+</html>

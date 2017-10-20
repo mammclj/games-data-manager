@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);
-    @RequestMapping("/testFreemarker")
+    /*@RequestMapping("/testFreemarker")
     public String testFreemarker(HttpServletRequest request){
         request.setAttribute("name","test ni hao ");
         return "index";
@@ -57,6 +57,6 @@ public class TestController {
     @RequestMapping("/getSPMonthDataStatisticsHtmlHtml")
     public String getSPMonthDataStatisticsHtmlHtml(){
         return "SPMonthDataStatistics";
-    }
+    }*/
 
 }

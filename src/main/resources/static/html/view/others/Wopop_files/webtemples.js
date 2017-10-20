@@ -513,7 +513,7 @@ $(function () {
                 close_Website_Domain();
                 $("#domian_from").dialog({
                     width: 845,
-                    modal: true, //TODO:
+                    modal: true,
                     resizable: false
                 });
                 $("#allprice2").html(New_Domain + comornet); //赋值给新域名的表单
@@ -597,7 +597,7 @@ $(function () {
                     close_Website_Domain();
                     $("#domian_from").dialog({
                         width: 845,
-                        modal: true, //TODO:
+                        modal: true,
                         resizable: false
                     });
                     $("#allprice2").html(New_Domain + comornet); //赋值给新域名的表单
@@ -1428,7 +1428,8 @@ function webinfo(obj) {
         width: 770,
         modal: true,
         resizable: false
-      //  position:[100,200]
+      //  position:[100,200]
+
     });
     //   $("#accordion").accordion({ autoHeight: false, active: 0 });  //基本信息
     var str = obj.parent("li").parent("ul").attr("id");
